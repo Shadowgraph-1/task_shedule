@@ -1,6 +1,6 @@
 import json
 import os
-from find_tasks import find_tasks_json
+from .find_tasks import find_tasks_json
 
 def load_json_file(current_file=None):
     """
