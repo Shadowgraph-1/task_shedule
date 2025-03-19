@@ -1,6 +1,5 @@
 import json
 import os
-from find_tasks import find_tasks_json  # Предполагаем, что эта функция ищет файлы по системе
 
 def load_json_file(current_file=None):
     """
