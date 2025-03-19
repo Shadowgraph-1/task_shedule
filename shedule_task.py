@@ -1,16 +1,16 @@
 import json
 import os
-from load_task import load_tasks
-from find_tasks import find_tasks_json
-from del_tasks import delete_tasks
-from edit_tasks import editor_task
-from add_task import add_tasky
-from daily_task_timer import show_task_time
-from change_shedule import load_json_file
-from continue_edit import edit_continue
-from update_last_file import update_last_edit
-from all_dir_files import find_local_json_files
-from add_new_file import create_new_file
+from all_func.add_new_file import create_new_file 
+from all_func.add_task import add_tasky
+from all_func.all_dir_files import find_local_json_files
+from all_func.change_shedule import load_json_file
+from all_func.continue_edit import edit_continue
+from all_func.daily_task_timer import show_task_time
+from all_func.del_tasks import delete_tasks
+from all_func.edit_tasks import editor_task
+from all_func.find_tasks import find_tasks_json
+from all_func.load_task import load_tasks
+from all_func.update_last_file import update_last_edit
 
 # Глобальный словарь для хранения задач
 TASKS = {}
