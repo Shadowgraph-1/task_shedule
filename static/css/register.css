@@ -1,0 +1,186 @@
+/* Контейнер для разделения экрана */
+.register-container {
+    display: flex;
+    min-height: 100vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+/* Левая часть с изображением */
+.register-left {
+    flex: 1;
+    background-image: url('/static/images/illustration_reg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Разделитель */
+.divider {
+    width: 2px;
+    background: linear-gradient(to bottom, #007bff, #00ddeb); /* Градиент от синего к голубому */
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Правая часть с формой */
+.register-right {
+    flex: 1;
+    background-color: #fff;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Стили для ссылки "Уже есть аккаунт?" */
+.already-have-account {
+    text-align: right;
+    width: 100%;
+    max-width: 400px;
+    margin-bottom: 20px;
+}
+
+.already-have-account a {
+    color: #007bff;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.already-have-account a:hover {
+    text-decoration: underline;
+}
+
+/* Заголовок формы */
+.register-right h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #000000;
+}
+
+/* Стили для формы */
+form {
+    max-width: 400px;
+    width: 100%;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 5px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+select:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+/* Сообщения об ошибках */
+.error-message {
+    display: block;
+    color: #dc3545;
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+
+/* Подсказки */
+.form-hint {
+    display: block;
+    color: #6c757d;
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+
+/* Чекбоксы */
+.checkbox-group {
+    margin: 20px 0;
+}
+
+.checkbox-group label {
+    display: flex;
+    align-items: center;
+    font-weight: normal;
+    margin-bottom: 10px;
+}
+
+.checkbox-group input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+/* Кнопка отправки */
+input[type="submit"] {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+    text-align: center;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Текст соглашения */
+.terms {
+    margin-top: 20px;
+    font-size: 12px;
+    color: #6c757d;
+    text-align: center;
+}
+
+.terms a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.terms a:hover {
+    text-decoration: underline;
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+    .register-container {
+        flex-direction: column;
+    }
+
+    .register-left,
+    .register-right {
+        flex: none;
+        width: 100%;
+    }
+
+    .register-left {
+        height: 300px;
+    }
+
+    .divider {
+        display: none;
+    }
+}
