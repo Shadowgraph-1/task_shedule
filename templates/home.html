@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}
+Добро пожаловать!
+{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+{% endblock %}
+
+{% block body %}
+<div class="home-container">
+    <h1>Добро пожаловать на главную страницу SHEDULE TASK!<br>
+        Сервис онлайн заметок</h1>
+
+    <div class="create-shedule">
+        <p><a href="{{ url_for('add_note') }}">Добавить новую заметку</a></p>
+    </div>
+</div>
+{% endblock %}
