@@ -1,0 +1,10 @@
+h1 {
+    text-align: center;
+    color: #17a2b8; /* Бирюзовый заголовок */
+}
+
+p {
+    text-align: center;
+    font-size: 16px;
+    color: #666;
+}
