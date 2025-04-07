@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Подключаем общий CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <!-- Блок для подключения CSS конкретной страницы -->
+    {% block styles %}{% endblock %}
+    <title>{% block title %}Расписание задач{% endblock %}</title>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <!-- Логотип -->
+            <a href="{{ url_for('home') }}" class="logo">
+                <svg width="180" height="40" viewBox="0 0 180 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10 20 L20 30 L35 10" stroke="#007bff" stroke-width="4" fill="none"/>
+                    <text x="45" y="30" font-size="24" font-weight="bold" fill="#007bff">SHEDULE</text>
+                </svg>
+            </a>
+            <!-- Ссылки "Зарегистрироваться" и "Войти" -->
+            <div class="auth-links">
+                <a href="{{ url_for('register') }}">Зарегистрироваться</a> | 
+                <a href="{{ url_for('login') }}">Войти</a>
+            </div> 
+        </div>
+    </header>
+    <main>
+        {% block body %}{% endblock %}
+    </main>
+    <!-- Футер -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-content">
+                <p class="copyright">© 2025 РАСПИСАНИЕ ЗАДАЧ. Все права защищены.</p>
+                <div class="nav-links">
+                    <a href="{{ url_for('about') }}">О нас</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
