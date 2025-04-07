@@ -1,0 +1,25 @@
+h1 {
+    text-align: center;
+    margin-top: 50px;
+    color: #333;
+}
+
+/* Стили для "Добавить заметку" */
+.create-shedule {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+.create-shedule a {
+    text-decoration: none; /* Убираем подчёркивание в обычном состоянии */
+    color: #007bff;
+}
+
+.create-shedule a:visited {
+    color: #007bff; /* Цвет остаётся голубым после нажатия */
+}
+
+.create-shedule a:hover {
+    text-decoration: underline; /* Подчёркивание только при наведении */
+}
