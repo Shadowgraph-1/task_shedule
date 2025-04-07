@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}
+Добавить заметку
+{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/add_note.css') }}">
+{% endblock %}
+
+{% block body %}
+<h1>Добавить новую заметку</h1>
+<form method="post">
+    <div>
+        <label for="note">Текст заметки:</label><br>
+        <textarea id="note" name="note" rows="5" cols="50"></textarea><br>
+    </div>
+    <div>
+        <input type="submit" value="Сохранить">
+    </div>
+</form>
+<a href="{{ url_for('home') }}">Назад на главную</a>
+{% endblock %}
