@@ -1,0 +1,186 @@
+/* Стили для шапки */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #dee2e6;
+}
+
+/* Стили для логотипа */
+.logo {
+    display: inline-block;
+}
+
+.logo svg {
+    transition: transform 0.2s;
+}
+
+.logo:hover svg {
+    transform: scale(1.05);
+}
+
+.logo-text {
+    font-size: 24px;
+    font-weight: bold;
+    color: #007bff;
+    text-decoration: none;
+    padding: 10px 20px;
+}
+
+.logo-text:hover {
+    color: #0056b3;
+}
+
+/* Стили для ссылок "Зарегистрироваться" и "Войти" */
+.auth-links {
+    position: absolute;
+    top: 20px;
+    right: 10px;
+}
+
+.auth-links a {
+    text-decoration: none;
+    color: #007bff;
+    margin: 0 5px;
+}
+
+.auth-links a:hover {
+    text-decoration: underline;
+}
+
+/* Основной контент */
+main {
+    margin-top: 60px;
+    padding: 20px;
+    padding-bottom: 60px; /* Отступ снизу, чтобы футер не перекрывал содержимое */
+}
+
+/* Общие стили для форм */
+form {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+input[type="submit"] {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Стили для тёмной темы */
+[data-theme="dark"] {
+    background-color: #333;
+    color: #fff;
+}
+
+[data-theme="dark"] .header-container {
+    background-color: #444;
+    border-bottom: 1px solid #666;
+}
+
+[data-theme="dark"] .footer-container {
+    background-color: #444;
+    border-top: 1px solid #666;
+}
+
+[data-theme="dark"] .footer-container .copyright {
+    color: #ccc;
+}
+
+[data-theme="dark"] .nav-links a {
+    color: #00ddeb; /* Голубой цвет для тёмной темы */
+}
+
+/* Утилита для скрытия элементов */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+/* Стили для футера */
+.footer-container {
+    background-color: #f8f9fa;
+    border-top: 1px solid #dee2e6;
+    padding: 10px 20px; /* Компактные отступы */
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between; /* Копирайт слева, "О нас" справа */
+    align-items: center;
+    max-width: 1200px; /* Ограничиваем ширину */
+    margin: 0 auto;
+}
+
+.copyright {
+    font-size: 14px;
+    color: #666;
+    margin: 0;
+}
+
+.nav-links {
+    font-size: 14px;
+}
+
+.nav-links a {
+    display: inline-block;
+    text-decoration: none;
+    color: #007bff;
+    border: 1px solid #007bff; /* Рамка вокруг "О нас" */
+    border-radius: 5px; /* Скруглённые углы */
+    padding: 5px 10px; /* Внутренние отступы */
+}
+
+.nav-links a:visited {
+    color: #007bff; /* Цвет остаётся голубым после нажатия */
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+}
