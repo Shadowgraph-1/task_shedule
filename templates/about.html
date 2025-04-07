@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}
+О нас
+{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/about.css') }}">
+{% endblock %}
+
+{% block body %}
+<h1>О нас</h1>
+<p>SHEDULE TASK — это удобный сервис для создания и управления онлайн-заметками.</p>
+{% endblock %}
