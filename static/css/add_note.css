@@ -1,0 +1,8 @@
+h1 {
+    text-align: center;
+    color: #6f42c1; /* Фиолетовый заголовок */
+}
+
+textarea {
+    resize: vertical; /* Позволяет изменять размер textarea только по вертикали */
+}
