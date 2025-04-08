@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% block styles %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/user_personal.css') }}">
+{% endblock %}
+{% block body %}
+<div class="user-personal-container">
+    <h2>Личный кабинет</h2>
+    <div class="user-info">
+        <h3>Ваши данные</h3>
+        {% if user %}
+            <p><strong>Имя пользователя:</strong> {{ user.username or 'Не указано' }}</p>
+            <p><strong>Имя:</strong> {{ user.firstname or 'Не указано' }}</p>
+            <p><strong>Фамилия:</strong> {{ user.lastname or 'Не указано' }}</p>
+            <p><strong>Email:</strong> {{ user.mail or 'Не указано' }}</p>
+            <p><strong>Email-уведомления:</strong> {{ 'Да' if user.email_preferences else 'Нет' }}</p>
+            <p><strong>Обновления и новости:</strong> {{ 'Да' if user.receive_updates else 'Нет' }}</p>
+        {% else %}
+            <p>Данные пользователя отсутствуют.</p>
+        {% endif %}
+    </div>
+
+    <h3>Редактировать данные</h3>
+    <form method="POST" action="{{ url_for('user_info') }}">
+        <label for="firstname">Имя</label>
+        <input type="text" id="firstname" name="firstname" value="{{ user.firstname or '' }}" required>
+
+        <label for="lastname">Фамилия</label>
+        <input type="text" id="lastname" name="lastname" value="{{ user.lastname or '' }}" required>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" value="{{ user.mail or '' }}" required>
+
+        <div class="checkbox-group">
+            <label>
+                <input type="checkbox" name="email-preferences" {% if user.email_preferences %}checked{% endif %}>
+                Получать email-уведомления
+            </label>
+            <label>
+                <input type="checkbox" name="receive-updates" {% if user.receive_updates %}checked{% endif %}>
+                Получать обновления и новости
+            </label>
+        </div>
+
+        <input type="submit" value="Сохранить изменения">
+    </form>
+
+    <h3>Ваши заметки</h3>
+    {% if user.notes %}
+        <ul>
+            {% for note in user.notes %}
+                <li>
+                    {{ note.new_note_add }} ({{ note.date_time_note.strftime('%Y-%m-%d %H:%M:%S') }})
+                    <form action="{{ url_for('delete_note', note_id=note.id) }}" method="POST" style="display:inline;">
+                        <button type="submit" onclick="return confirm('Вы уверены, что хотите удалить эту заметку?');">Удалить</button>
+                    </form>
+                    <a href="{{ url_for('edit_note', note_id=note.id) }}">Редактировать</a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>У вас нет заметок.</p>
+    {% endif %}
+</div>
+{% endblock %}
