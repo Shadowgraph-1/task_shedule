@@ -11,6 +11,25 @@
     <div class="register-right">
         <h2>Создайте бесплатный аккаунт</h2>
         <form method="POST" action="{{ url_for('register') }}">
+            <label for="username">Имя пользователя</label>
+            <input type="text" id="username" name="username" placeholder="Введите имя пользователя" required>
+            <small class="form-hint">Имя пользователя может содержать только буквенно-цифровые символы, не должно начинаться с цифры.</small>
+            {% if form_errors and 'username' in form_errors %}
+                <small class="error-message">{{ form_errors['username'] }}</small>
+            {% endif %}
+
+            <label for="firstname">Имя</label>
+            <input type="text" id="firstname" name="firstname" placeholder="Введите имя" required>
+            {% if form_errors and 'firstname' in form_errors %}
+                <small class="error-message">{{ form_errors['firstname'] }}</small>
+            {% endif %}
+
+            <label for="lastname">Фамилия</label>
+            <input type="text" id="lastname" name="lastname" placeholder="Введите фамилию" required>
+            {% if form_errors and 'lastname' in form_errors %}
+                <small class="error-message">{{ form_errors['lastname'] }}</small>
+            {% endif %}
+
             <label for="email">Email</label>
             <input type="email" id="email" name="email" placeholder="Введите email" required>
             {% if form_errors and 'email' in form_errors %}
@@ -24,13 +43,6 @@
                 <small class="error-message">{{ form_errors['password'] }}</small>
             {% endif %}
 
-            <label for="username">Имя пользователя</label>
-            <input type="text" id="username" name="username" placeholder="Введите имя пользователя" required>
-            <small class="form-hint">Имя пользователя может содержать только буквенно-цифровые символы, не должно начинаться с цифры.</small>
-            {% if form_errors and 'username' in form_errors %}
-                <small class="error-message">{{ form_errors['username'] }}</small>
-            {% endif %}
-
             <label for="country">Ваша страна</label>
             <select id="country" name="country" required>
                 <option value="" disabled selected>Выберите страну</option>
@@ -38,9 +50,11 @@
                 <option value="US">США</option>
                 <option value="KZ">Казахстан</option>
             </select>
+
             <div class="already-have-account">
                 <a href="{{ url_for('login') }}">Уже есть аккаунт? Войти →</a>
             </div>
+
             <div class="checkbox-group">
                 <label>
                     <input type="checkbox" name="email-preferences">
