@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block styles %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/db_panel.css') }}">
+{% endblock %}
+{% block body %}
+<div class="db-panel-container">
+    <h2>Панель базы данных</h2>
+    <form method="POST" action="{{ url_for('db_panel') }}">
+        <label for="search">Поиск пользователей (по имени или email):</label>
+        <input type="text" id="search" name="search" placeholder="Введите имя или email">
+        <input type="submit" value="Поиск">
+    </form>
+    {% if users %}
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Имя пользователя</th>
+                    <th>Имя</th>
+                    <th>Фамилия</th>
+                    <th>Email</th>
+                    <th>Email-уведомления</th>
+                    <th>Обновления и новости</th>
+                    <th>Заметки</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in users %}
+                    <tr>
+                        <td>{{ user.id }}</td>
+                        <td>{{ user.username }}</td>
+                        <td>{{ user.firstname }}</td>
+                        <td>{{ user.lastname }}</td>
+                        <td>{{ user.mail }}</td>
+                        <td>{{ 'Да' if user.email_preferences else 'Нет' }}</td>
+                        <td>{{ 'Да' if user.receive_updates else 'Нет' }}</td>
+                        <td>
+                            {% if user.notes %}
+                                <ul>
+                                    {% for note in user.notes %}
+                                        <li>{{ note.new_note_add }} ({{ note.date_time_note.strftime('%Y-%m-%d %H:%M:%S') }})</li>
+                                    {% endfor %}
+                                </ul>
+                            {% else %}
+                                Нет заметок
+                            {% endif %}
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>Пользователи отсутствуют.</p>
+    {% endif %}
+</div>
+{% endblock %}
